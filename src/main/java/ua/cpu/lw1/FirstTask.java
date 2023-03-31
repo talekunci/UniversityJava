@@ -1,6 +1,6 @@
-package ua.cpu;
+package ua.cpu.lw1;
 
-public class Main {
+public class FirstTask {
 
 //    The first task
     public static void main(String[] args) {
