@@ -2,16 +2,27 @@ package ua.cpu.lw2;
 
 import static java.lang.Math.pow;
 
-//The Second task 1
+/**
+ * The Second task
+ * */
 public class SecondTask {
 
+/**
+ * Main object
+ * */
     private static final SecondTask task = new SecondTask();
 
+    /**
+     * arithmOperators() does first exercise
+     * and logicOperators() does second exercise*/
     public static void main(String[] args) {
         task.arithmOperators();
         task.logicOperators();
     }
 
+    /**
+    * Create an object and invoking its method and formatting output
+    * */
     private void logicOperators() {
         System.out.println("\tSecond exercise");
         System.out.println("-------------------Start--------------------");
@@ -20,6 +31,12 @@ public class SecondTask {
 
     }
 
+    /**
+     * Here are invoking of three methods, for each exercises of this part of task.
+     * The first - counting an expression into print method arguments.
+     * Second one - counting an expression using temp vars ant then printing.
+     * And the last - division previous expression's result by modulo on the fixed value '8'.
+     * */
     private void arithmOperators() {
         ArithmOperators arithmOperators = new ArithmOperators();
 
@@ -33,15 +50,20 @@ public class SecondTask {
         System.out.println("------------------The End-------------------");
     }
 
-    //    Перше завдання
+    /**
+     * Nested class for first part of the task.
+     * */
     static class ArithmOperators {
 
-        //      Вхідні змінні з фіксованими значеннями
+        /**
+         * Variables 'a' and 'b' are for counting an expression.
+         * Var 'modulo' is fixed value for the part 'division by modulo'.
+         * */
         private final short a = 1000;
         private final short b = 500;
         private final byte modulo = 8;
 
-        //      Без використання проміжних змінних
+        /** First part where counting of the arithmetic expression into print() arguments. */
         void firstSolution() {
             System.out.printf("a = %d,%n" +
                             "b = %d,%n" +
@@ -52,7 +74,7 @@ public class SecondTask {
             );
         }
 
-        //      З використанням проміжних змінних
+        /** Second part where counting is before print method invoking. */
         String secondSolution() {
             float denominator = (float) (pow(a, 3) - a * pow(b, 2));
             float numerator = (float) (pow((7 * a), 2) + pow(b, 2));
@@ -66,7 +88,7 @@ public class SecondTask {
             );
         }
 
-        //        Обчислення арифметичного виразу
+        /** Separate method for counting an expression. In general created for the last part of the task. */
         private float calcArithmExp() {
             float denominator = (float) (pow(a, 3) - a * pow(b, 2));
             float numerator = (float) (pow((7 * a), 2) + pow(b, 2));
@@ -74,18 +96,20 @@ public class SecondTask {
             return denominator / numerator;
         }
 
-        //        Ділення по модулю
+        /** Here is division by modulo*/
         float divisionByModulo(int modulo, float value) {
             return value % modulo;
         }
     }
 
-    //    Друге завдання
+    /** The second part of the task.
+     * The variables of the class are rather complicated to initialize,
+     * so that's happens in a separate initialization block.
+     * */
     static class LogicOperators {
         private final int d;
         private final int m;
 
-//        Ініціалізація змінних
         {
             d = ~(27 % 16) & 0xf;
             m = 2 & 0xf;
@@ -95,7 +119,7 @@ public class SecondTask {
             );
         }
 
-//        Завдання та вивід результату в консоль
+        /** The last exercise and printing the result. */
         void exercise() {
             int a = ~d & m;
             int b = a ^ d >> 2;
