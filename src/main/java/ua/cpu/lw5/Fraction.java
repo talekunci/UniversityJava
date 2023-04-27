@@ -11,6 +11,13 @@ public class Fraction extends Number {
     private final int denominator;
 
     public Fraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("denominator is zero");
+        }
+        if (denominator < 0) {
+            numerator *= -1;
+            denominator *= -1;
+        }
         this.numerator = numerator;
         this.denominator = denominator;
     }
